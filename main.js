@@ -35,6 +35,27 @@ app.post("/post/users", (req, res) => {
 })
 
 
+app.put("/put/users", (req, res) => {
+
+    const id = req.body.ID
+    const nombre = req.body.Nombre 
+    const edad = req.body.Edad 
+
+    for(let i = 0; i < lista_users.length; i++) {
+        if(lista_users[i].ID == id) {
+
+            lista_users[i].Nombre = nombre
+            lista_users[i].Edad = edad
+            return res.send("Usuario actualizado")
+            
+        }
+    }
+
+    res.send("Usuario no encontrado")
+
+})
+
+
 
 
 
